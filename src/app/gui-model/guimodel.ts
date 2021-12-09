@@ -182,8 +182,8 @@ export class GuiModel {
                         {
                             "type": "button",
                             "name": "Activity",
-                            "icon": "fa-cubes",
-                            "color": "yellow",
+                            "icon": "fa-skiing",
+                            "color": "lime",
                             "page": "activityspage",
                         },
                         { 
