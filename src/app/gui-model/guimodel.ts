@@ -149,6 +149,35 @@ export class GuiModel {
                     ]
                 },
                 {
+                    "id": "AddFriendForm",
+                    "title": "Friend",
+                    "url": "/activity/:activityKey/friend",
+                    "formFieldList": [
+                        {
+                            "id": "friend",
+                            "type": "autocomplete",
+                            "name": "Friend",
+                            "url": "/friend",
+                            "defaultKey": "friendKey",
+                            "readonly": true,
+                            "form": "FriendForm",
+                            "width": 2
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        },
+                        {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        },
+                        {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }
+                    ]
+                },
+                {
                     "id": "ActivityForm",
                     "title": "Activity",
                     "url": "/activity",
@@ -173,14 +202,6 @@ export class GuiModel {
                             "name": "Location",
                             "url": "/location",
                             "form": "LocationForm",
-                            "width": 2
-                        },
-                        {
-                            "id":   "friend",
-                            "type": "autocomplete",
-                            "name": "Friend",
-                            "url": "/friend",
-                            "form": "FriendForm",
                             "width": 2
                         },
                         { 
@@ -300,7 +321,10 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/friend",
-                            "page": "friendoverview",
+                            "page": "friendoverview"
+                            //"form": {
+                            // "form": "FriendForm"
+                            // }
                         },
                     ]
                 },{
@@ -312,7 +336,7 @@ export class GuiModel {
                         {
                             "type": "button",
                             "name": "EditFriend",
-                            "icon": "fa-user",
+                            "icon": "fas fa-pen",
                             "color": "green",
                             "form": {
                                 "form": "FriendForm"
@@ -320,6 +344,7 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
+                            "id": "addactivity",
                             "name": "AddActivity",
                             "icon": "fa-skiing",
                             "color": "blue",
@@ -334,7 +359,7 @@ export class GuiModel {
                             "search": true,
                             "url": "/friend/:friendKey/activity",
                             "form": {
-                                "form": "FriendForm"
+                                "form": "ActivityForm"
                             }
                         },
                     ]
@@ -361,8 +386,37 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/location",
+                            "page": "locationspageoverview"
+                            //"form": {
+                            //    "form": "LocationForm"
+                            //}
+                        },
+                    ]
+                },
+                {
+                    "id": "locationspageoverview",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "button",
+                            "name": "EditLocation",
+                            "icon": "fas fa-pen",
+                            "color": "green",
+                            "width": 2,
                             "form": {
                                 "form": "LocationForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-skiing",
+                            "color": "red",
+                            "search": true,
+                            "url": "/location/:locationKey/activity",
+                            "form": {
+                                "form": "ActivityForm"
                             }
                         },
                     ]
@@ -375,11 +429,11 @@ export class GuiModel {
                         }, 
                         { 
                             "type": "newButton", 
-                            "name": "NewActivity", 
+                            "name": "AddActivity", 
                             "icon": "fa-weixin", 
                             "color": "green", 
                             "form": { 
-                                "form": "AddActivityForm" 
+                                "form": "ActivityForm" 
                             } 
                         },
                         {
@@ -388,11 +442,49 @@ export class GuiModel {
                             "color": "blue",
                             "search": true,
                             "url": "/activity",
-                            "form": {
-                                "form": "AddActivityForm"
-                            }
+                            "page": "activitypageoverview"
+                            //"form": {
+                            //    "form": "AddActivityForm"
+                            //}
                         }, 
                     ] 
+                },
+                {
+                    "id": "activitypage2",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "button",
+                            "name": "EditActivity",
+                            "icon": "fas fa-pen",
+                            "color": "green",
+                            "form": {
+                                "form": "ActivityForm"
+                            }
+                        },
+                        {
+                            "type": "newButton",
+                            "id": "addfriend",
+                            "name": "AddFriend",
+                            "icon": "fa-user",
+                            "color": "green",
+                            "form": {
+                                "form": "AddFriendForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "icon": "fa-user",
+                            "color": "blue",
+                            "search": true,
+                            "url": "/activity/:activityKey/friend",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        },
+                    ]
                 }, 
                 { 
                     "id": "groupspage", 
