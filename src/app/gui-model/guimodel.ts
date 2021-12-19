@@ -248,7 +248,6 @@ export class GuiModel {
                             "type": "text", 
                             "name": "Comments", 
                             "width": 2, 
-                            "required": true 
                         },
                         { 
                             "type": "deleteButton", 
